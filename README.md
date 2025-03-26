@@ -14,6 +14,7 @@ Each node:
 - Simple matching engine (exact price, FIFO matching)
 - Fully in-memory, no DB or external storage
 - CLI interface for submitting orders
+- Order tracing with timestap in logs where order-id is printed in log lines
 
 ---
 
@@ -59,9 +60,8 @@ p2p-exchange/
 
 ## 🧠 Concepts Used
 - Grenache: Lightweight P2P microservices framework
-- Redis: Pub/Sub messaging backend
 - Grape: Service discovery using DHT
-- Node.js: Event-driven architecture with built-in async tools
+- Grenache Peer-to-peer communication
 
 ---
 
@@ -106,9 +106,9 @@ Let them all start and register with Grape.
 
 ## ✅ Limitations and Improvements
 - currently only exact matching is done for orders
+- race conditions are not handled yet, can be fixed by implementing semaphors in Redis-cache
 - Add unit tests for orderbook logic
 - Visual logs or WebSocket-based UI to give vieww on "status of order Book and fulfillment"
-- Add Docker & Docker Compose support
 
 ---
 
